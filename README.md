@@ -124,4 +124,7 @@ ping webserver.demo.com
 ```
 3. Goto webserver.demo.com and fileserver.demo.com in your browser  
 
+## Alternative Access w/ Pre-Generated Config File
 
+1. Go to https://drive.google.com/drive/u/0/folders/1HyBd6-vJYQsWkBsrD6ZgprhTI5LRgVLs
+2. Download and apply a config file (config files will only work on 1 device at a time)
