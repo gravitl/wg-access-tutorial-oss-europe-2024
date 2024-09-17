@@ -70,7 +70,7 @@ vim wg0.conf
 ```
 [Peer]
 PublicKey = <copied from step 2>
-AllowedIPS = 10.191.143.2/32 (can be any private address you prefer, but should not be the same as the server private IP)
+AllowedIPs = 10.191.143.2/32 (can be any private address you prefer, but should not be the same as the server private IP)
 PersistentKeepalive = 25
 ```
 5. Restart the wireguard interface, check to see it includes the new peer  
@@ -101,7 +101,7 @@ DNS = 10.101.0.6 (this is the DNS server in the private environment)
 [Peer]
 PublicKey = <server public key>
 Endpoint = <server public address>:51820 (the public address will be the same address you used to SSH)
-AllowedIPS = 10.191.143.x/32,10.101.0.0/16 (this will be the server address used in Step 7 of the first section, and the VPC CIDR, which is 10.101.0.0/16)
+AllowedIPs = 10.191.143.x/32,10.101.0.0/16 (this will be the server address used in Step 7 of the first section, and the VPC CIDR, which is 10.101.0.0/16)
 PersistentKeepalive = 25
 ```
 4. Start the interface. This is the command for Linux. If using GUI, upload and activate the config file. Or use whatever instructions for your OS  
@@ -140,7 +140,7 @@ ping webserver.demo.com
 [Peer]
 PublicKey = <peer public key>
 Endpoint = <peer ip address>:51820
-AllowedIPS = <peer private address>/32
+AllowedIPs = <peer private address>/32
 PersistentKeepalive = 25
 ```
 5. Restart the interface  
