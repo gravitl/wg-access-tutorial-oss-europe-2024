@@ -48,3 +48,39 @@ wg-quick up wg0
 wg
 ip a
 ```
+
+## Add Peer to Server for your Local Device
+
+1. Create a public/private keypair for your local peer  
+**NOTE:** typically you want to generate this on the local device. Private keys should stay on the peer. However, this is more convenient for the tutorial. Feel free to generate locally if you prefer.   
+```
+cd /etc/wireguard
+mkdir peers
+cd peers
+wg genkey | tee privatekey | wg pubkey > publickey
+cat publickey
+```
+2. copy the public key  
+3. modify the server config to include the peer    
+```
+cd ..
+vim wg0.conf
+```
+4. Enter contents with the following format, below the PostDown command  
+```
+[Peer]
+PublicKey = <copied from step 2>
+AllowedIPS = 10.191.143.2/32 (can be any private address you prefer)
+PersistentKeepalive = 25
+```
+5. Restart the wireguard interface, check to see it includes the new peer  
+```
+wg-quick down wg0 && wg-quick up wg0
+wg
+```
+6. Copy the public key of the **server** and the private key of the **peer** for the next steps  
+```
+cat publickey
+cat peers/privatekey
+```
+
