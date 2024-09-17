@@ -128,3 +128,27 @@ ping webserver.demo.com
 
 1. Go to https://drive.google.com/drive/u/0/folders/1HyBd6-vJYQsWkBsrD6ZgprhTI5LRgVLs
 2. Download and apply a config file (config files will only work on 1 device at a time)
+
+## Got Time? Build a Peer-to-Peer Network with your Peers!
+
+1. Add your **server** public key here: https://docs.google.com/spreadsheets/d/112ir8ZVfqklE61bmJx7CZVkGIjJTPeGd3di6SPMiBoU/edit?usp=sharing   
+2. Wait for keys to appear from your group in the doc  
+    - Alternatively, talk to your neighbors. Trade keys with them.  
+4. Add your peers as peers to your **server** config file  
+5. For each peer, add a section to your config file as follows:  
+```
+[Peer]
+PublicKey = <peer public key>
+Endpoint = <peer ip address>:51820
+AllowedIPS = <peer private address>/32
+PersistentKeepalive = 25
+```
+5. Restart the interface  
+```
+wg-quick down wg0 && wg-quick up wg0
+```
+6. Note this will only work once a peer **has also added you**. Check your WireGuard interface to see if you have a connection. If there is a handshake, try pinging.  
+```
+wg
+ping <peer private address>
+```
