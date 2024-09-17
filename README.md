@@ -108,3 +108,20 @@ PersistentKeepalive = 25
 ```
 wg-quick up ./wg0.conf
 ```
+## Check Access from Local
+
+These instructions are for Linux. For Windows or other OS, check GUI and just check website access
+
+1. Check to see if interface exists and you have a handshake with server
+```
+ip a
+wg
+```
+2. Check to see if you can access resources  
+```
+ping 10.101.0.3
+ping webserver.demo.com
+```
+3. Goto webserver.demo.com and fileserver.demo.com in your browser  
+
+
