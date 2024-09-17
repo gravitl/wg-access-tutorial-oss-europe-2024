@@ -152,3 +152,16 @@ wg-quick down wg0 && wg-quick up wg0
 wg
 ping <peer private address>
 ```
+### Extra Points: Run a private webserver, write a secret message
+1. Install docker on your server
+```
+apt install docker.io
+```
+2. Run a webserver on your wireguard interface
+```
+docker run -d -e MESSAGE="YOUR SECRET MESSAGE HERE" -p <your server private wg address>:8080:80 nginx:alpine sh -c "echo \$MESSAGE > /usr/share/nginx/html/index.html && nginx -g 'daemon off;'"
+```
+3. check other servers in your P2P network for their secret messages
+```
+curl <peer private ip address>:8080
+```
