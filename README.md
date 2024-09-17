@@ -27,7 +27,7 @@ vim wg0.conf
 ```
 7. Enter the file contents with the following format  
 ```
-[interface]
+[Interface]
 PrivateKey = (from clipboard)
 Address = 10.191.143.x/32 (please replace x with your server number, e.g. "server-122" == 122)
 ListenPort = 51820 (optional, is 51820 by default)
