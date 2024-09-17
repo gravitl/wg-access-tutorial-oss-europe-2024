@@ -93,7 +93,7 @@ vim wg0.conf
 ```
 3. Add contents to Config File using the following template  
 ```
-[interface]
+[Interface]
 PrivateKey = <peer private key>
 Address = 10.191.143.2/32 (should be whatever address was added to Peer section in Step 4 of previous instructions)
 DNS = 10.101.0.6 (this is the DNS server in the private environment)
