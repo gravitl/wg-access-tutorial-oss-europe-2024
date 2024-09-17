@@ -84,3 +84,27 @@ cat publickey
 cat peers/privatekey
 ```
 
+## Setup WireGuard Connection Locally
+
+1. Install WireGuard: https://www.wireguard.com/install/
+2. Create Config file (depends on your OS. This is for Linux. Or just use any text editor)
+```
+vim wg0.conf
+```
+3. Add contents to Config File using the following template  
+```
+[interface]
+PrivateKey = <peer private key>
+Address = 10.191.143.2/32 (should be whatever address was added to Peer section in Step 4 of previous instructions)
+DNS = 10.101.0.6 (this is the DNS server in the private environment)
+
+[Peer]
+PublicKey = <server public key>
+Endpoint = <server public address>:51820 (the public address will be the same address you used to SSH)
+AllowedIPS = 10.191.143.1/32,10.101.0.0/16 (this will be the server address used in Step 7 of the first section, and the VPC CIDR)
+PersistentKeepalive = 25
+```
+4. Start the interface. This is the command for Linux. If using GUI, upload and activate the config file. Or use whatever instructions for your OS  
+```
+wg-quick up ./wg0.conf
+```
